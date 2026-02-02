@@ -1,10 +1,6 @@
 # Vita FNAF1
 
-Remake of FNAF1 targeted towards the PSVita.
-
-Also runs on Windows, Linux and on the web using Emscriptem.
-
-Obviously, the used assets are not owned by me and are under the copyright of the original creator, Scott Cawthon.
+Port of FNAF1 targeted towards the PSVita that also runs on Windows, Linux and the web using Emscriptem.
 
 The source code is licensed under GPL v3.0.
 
@@ -23,8 +19,6 @@ For more info there's also the [workflows](./.github/workflows/).
 ### Web:
 
 - Make sure you are not running index.html directly in the browser as browsers are not a fan of loading wasm locally.
-
-#### Homage to my [old project,](https://github.com/ghostnear/VitaFNAF1)
 
 ---
 

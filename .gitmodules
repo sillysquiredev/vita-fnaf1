@@ -1,0 +1,6 @@
+[submodule "assets"]
+	path = assets
+	url = https://github.com/sillysquiredev/vita-fnaf1-assets
+[submodule "lib/nexgl"]
+	path = lib/nexgl
+	url = https://github.com/sillysquiredev/nexgl
