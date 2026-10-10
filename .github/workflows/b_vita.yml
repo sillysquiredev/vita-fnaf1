@@ -27,6 +27,7 @@ jobs:
             git clone https://github.com/vitasdk/vdpm --depth 1
             cd vdpm
             ./bootstrap-vitasdk.sh
+            chmod +x /usr/local/vitasdk/bin/pacman
             ./install-all.sh
 
       - name: Build custom packages
