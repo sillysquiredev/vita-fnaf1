@@ -32,7 +32,7 @@ jobs:
         run: |
             export VITASDK=/usr/local/vitasdk
             export PATH=$VITASDK/bin:$PATH
-            git clone https://github.com/solomonarul/vita-packages.git --depth 1
+            git clone https://github.com/sillysquiredev/vita-packages.git --depth 1
             cd vita-packages
             ./build.sh flac
             ./build.sh libogg
