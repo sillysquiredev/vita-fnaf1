@@ -86,10 +86,13 @@ rb:
 	@cd out/web/ && emrun --browser firefox index.html
 
 sv:
-	@curl -T ./out/vpk/${TARGET}.vpk ftp://$(VITA_ADDR)/ux0:/VPK/${TARGET}.vpk
+	@curl -T ./out/vpk/${TARGET}.vpk ftp://$(VITA_ADDR):1337/ux0:/VPK/${TARGET}.vpk
 
 sve:
-	@curl -T ./build/${TARGET}.self.out ftp://$(VITA_ADDR)/ux0:/app/${VITA_APP_ID}/eboot.bin
+	@curl -T ./build/${TARGET}.self.out ftp://$(VITA_ADDR):1337/ux0:/app/${VITA_APP_ID}/eboot.bin
+
+lv:
+	@nc -kl 9997
 
 du:
 	@renderdoccmd capture ./out/bin/${TARGET}

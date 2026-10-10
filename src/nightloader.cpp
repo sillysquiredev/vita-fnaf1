@@ -44,6 +44,8 @@ States::NightLoader::NightLoader(StateManager& sm, int night) : IState::IState(s
 
     AssetManager::get<Audio>("a_blip3")->play_track();
 
+    this->night = night;
+
 #ifdef __DEBUG__
     SDL_Log("[TRCE] Loaded Nightloader state.\n");
 #endif
@@ -95,7 +97,7 @@ void States::NightLoader::update(double dt)
         {
             this->ti_fade_out.update(dt);
             if (this->ti_fade_out.has_ticked())
-                PUSH_STATE(this->state_manager, States::Office);
+                PUSH_STATE(this->state_manager, States::Office, this->night);
         }
         else
             AssetManager::process_enqueued();

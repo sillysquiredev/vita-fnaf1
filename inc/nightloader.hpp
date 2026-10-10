@@ -14,6 +14,7 @@ namespace Game::States
     {
         NightLoader(StateManager&, int);
 
+        uint8_t night;
         uint8_t loaded_count = 0;
         uint16_t blip_frame = 0;
         Timer ti_blip_update = Timer(1.0 / 75);

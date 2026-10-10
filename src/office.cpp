@@ -1,13 +1,14 @@
 #include "office.hpp"
 
 #include "appdata.hpp"
+#include "objects/office/simulation.hpp"
 
 using namespace Game;
 
 static SDL_FRect const RECT_FAN = SDL_FRect{.x = -24.0 / 960, .y = -209.0 / 544, .w = 163.0 / 960, .h = 294.0 / 544};
 static SDL_FRect const RECT_FREDDY_NOSE = SDL_FRect{.x = 500.0 / 960, .y = 165.0 / 544, .w = 30.0 / 960, .h = 30.0 / 544};
 
-States::Office::Office(StateManager& sm) : IState::IState(sm)
+States::Office::Office(StateManager& sm, uint8_t night) : IState::IState(sm)
 {
     auto userdata = std::any_cast<std::shared_ptr<AppData>>(this->state_manager.userdata);
 
@@ -29,6 +30,8 @@ States::Office::Office(StateManager& sm) : IState::IState(sm)
     this->spr_fan.refresh_from_rect(RECT_FAN);
 
     this->o_call_handler.o_cursor = userdata->o_cursor;
+
+    this->o_simulation = std::make_unique<Objects::Office::Simulation>(night);
 
 #ifdef __DEBUG__
     SDL_Log("[TRCE] Loaded Office state.\n");
@@ -61,6 +64,8 @@ void States::Office::draw(int w, int h)
     this->spr_office_view.draw(*this->s_office);
 
     this->o_call_handler.draw();
+
+    this->o_simulation->draw();
 
     Texture::default_shader->use();
     userdata->o_cursor->draw(*Texture::default_shader);

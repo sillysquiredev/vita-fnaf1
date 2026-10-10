@@ -19,7 +19,7 @@ States::Main::Main(StateManager& sm) : IState::IState(sm)
     this->t_warning[1]->y = 0 / 544.0;
 
     this->t_warning[2] = std::make_unique<MTSDF::Text>(f_tahoma, "noises, and lots of jumpscares!");
-    this->t_warning[2]->y = -45 / 544.0;
+    this->t_warning[2]->y = -55 / 544.0;
 
     for (auto index = 0; index < 3; index++)
     {

@@ -10,9 +10,7 @@ Cursor::Cursor(std::shared_ptr<Texture> texture, size_t w, size_t h)
 }
 
 void Cursor::update(void)
-{
-    this->type = CursorType::CURSOR_NORMAL;
-}
+{ this->type = CursorType::CURSOR_NORMAL; }
 
 void Cursor::draw(Shader& shader)
 {

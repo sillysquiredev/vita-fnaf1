@@ -8,8 +8,8 @@
 #ifdef __psp2__
 // PSVita newlib + Sony SDK heap sizes.
 // TODO: Probably I don't actually need this much.
-int _newlib_heap_size_user = 100 * 1024 * 1024; // 100MB
-unsigned int sceLibcHeapSize = 4 * 1024 * 1024; // 4MB
+int _newlib_heap_size_user = 125 * 1024 * 1024; // 125MB
+unsigned int sceLibcHeapSize = 8 * 1024 * 1024; // 8MB
 unsigned int sceLibcHeapExtendedAlloc = 1;      // Lets libc resize automatically on getting full.
 #endif
 
@@ -20,11 +20,7 @@ struct AppState : public IAppState
 {
     double timer = 0;
     StateManager states;
-#ifdef APP_IS_DEMO
-    Window window = Window({.title = "Five Nights at Freddy's DEMO", .w = 960, .h = 544});
-#else
     Window window = Window({.title = "Five Nights at Freddy's", .w = 960, .h = 544});
-#endif
 };
 
 bool main_loop(double time, void* userData)

@@ -50,13 +50,12 @@ States::Menu::Menu(StateManager& sm) : IState::IState(sm)
     this->t_texts[2]->o_x = -1;
     this->t_texts[2]->o_y = 1;
 
-#ifdef APP_IS_DEMO
+    // TODO: show this only on the first play.
     this->t_demo = std::make_unique<MTSDF::Text>(this->f_consolas, "Demo");
     this->t_demo->x = -700 / 960.0;
     this->t_demo->y = 100 / 544.0;
     this->t_demo->s = 79 / 544.0;
     this->t_demo->s_x = 0.5;
-#endif
 
     this->a_darkness_music->play_track();
     this->a_static2->play_track();
@@ -78,9 +77,7 @@ void States::Menu::draw(int w, int h)
     this->o_selector.draw();
     for (auto index = 0; index < 3; index++) this->t_texts[index]->draw();
 
-#ifdef APP_IS_DEMO
     this->t_demo->draw();
-#endif
 }
 
 void States::Menu::update(double dt)

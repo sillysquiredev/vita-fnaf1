@@ -2,7 +2,7 @@
 
 using namespace Game::Objects::Office;
 
-static SDL_FRect const RECT_CALL = SDL_FRect{.x = -900.0 / 960, .y = 444.0 / 544, .w = 192.0 / 960, .h = 48.0 / 544};
+static SDL_FRect const RECT_CALL = SDL_FRect{.x = -930.0 / 960, .y = 450.0 / 544, .w = 192.0 / 960, .h = 48.0 / 544};
 
 CallHandler::CallHandler()
 {

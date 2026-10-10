@@ -7,12 +7,13 @@ using namespace NEX::Core;
 using namespace NEX::GL;
 
 #include "objects/office/call.hpp"
+#include "objects/office/simulation.hpp"
 
 namespace Game::States
 {
     struct Office : public IState
     {
-        Office(StateManager&);
+        Office(StateManager&, uint8_t);
 
         double u_view_offset = 0.5;
         std::shared_ptr<Shader> s_office;
@@ -27,6 +28,7 @@ namespace Game::States
         Sprite spr_office, spr_office_view;
 
         Objects::Office::CallHandler o_call_handler;
+        std::unique_ptr<Objects::Office::Simulation> o_simulation;
 
         virtual void draw(int w, int h) override;
         virtual void update(double dt) override;

@@ -4,7 +4,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
 
 set(NEX_APP_EXECUTABLE app)
 set(VITA_APP_NAME "Five Nights at Freddy's")
-set(VITA_TITLEID "SLMNFNAF1")
+set(VITA_TITLEID "VITAFNAF1")
 set(VITA_VERSION "01.00")
 set(VITA_MKSFOEX_FLAGS "${VITA_MKSFOEX_FLAGS} -d PARENTAL_LEVEL=1")
 # set(VITA_MKSFOEX_FLAGS "${VITA_MKSFOEX_FLAGS} -d ATTRIBUTE2=12")  # Uncomment to download more RAM.
@@ -26,6 +26,7 @@ set(
         "src/objects/menu/background.cpp"
         "src/objects/menu/manager.cpp"
         "src/objects/office/call.cpp"
+        "src/objects/office/simulation.cpp"
 )
 
 if(NEX_BUILD_PLATFORM MATCHES "WINDOWS")
@@ -54,12 +55,6 @@ set_target_properties(
         CXX_STANDARD 20
         CXX_STANDARD_REQUIRED ON
         CXX_EXTENSIONS ON
-)
-
-target_compile_definitions(
-    ${PROJECT_NAME}
-    PRIVATE
-        APP_IS_DEMO
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE

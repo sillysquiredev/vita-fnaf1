@@ -7,7 +7,7 @@ Background::Background()
     this->shader = AssetManager::get<Shader>("s_menu_background");
     this->t_blip = AssetManager::get<TextureArray>("t_menu_blip");
     this->t_background = AssetManager::get<Texture>("t_menu_background");
-    this->t_static = AssetManager::get<Texture>("t_static");
+    this->t_static = AssetManager::get<TextureArray>("t_static");
 }
 
 void Background::draw()
@@ -23,13 +23,17 @@ void Background::draw()
     this->shader->set_uniform("vt_background.count", 4.0);
     this->t_background->activate(GL_TEXTURE0);
 
+    // NOTE: max PSVita texture size is 4096 so I kinda had to split these otherwise the static won't load at all.
     this->shader->set_uniform("vt_static.texture", 1);
     this->shader->set_uniform("vt_static.index", (double)this->current_static_texture);
     this->shader->set_uniform("vt_static.count", 8.0);
-    this->t_static->activate(GL_TEXTURE1);
+    this->t_static->textures[0]->activate(GL_TEXTURE1);
 
-    this->shader->set_uniform("u_blip_texture", 2);
-    this->t_blip->textures[this->current_blip_texture]->activate(GL_TEXTURE2);
+    this->shader->set_uniform("u_static1", 2);
+    this->t_static->textures[1]->activate(GL_TEXTURE2);
+
+    this->shader->set_uniform("u_blip_texture", 3);
+    this->t_blip->textures[this->current_blip_texture]->activate(GL_TEXTURE3);
 
     this->spr_background.draw(*shader);
 }
