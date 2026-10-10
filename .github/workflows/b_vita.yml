@@ -34,6 +34,13 @@ jobs:
             export PATH=$VITASDK/bin:$PATH
             git clone https://github.com/solomonarul/vita-packages.git --depth 1
             cd vita-packages
+            ./build.sh flac
+            ./build.sh libogg
+            ./build.sh libvorbis
+            ./build.sh libxmp
+            ./build.sh mpg123
+            ./build.sh opus
+            ./build.sh opusfile
             ./build.sh pvr_psp2
             ./build.sh sdl3_pvr_psp2
             ./build.sh sdl3_mixer
