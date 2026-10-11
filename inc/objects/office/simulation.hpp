@@ -39,7 +39,7 @@ namespace Game::Objects::Office
 
         uint8_t presets[6][ANIMATRONIC_COUNT] = {{0, 0, 0, 0}, {0, 3, 1, 1}, {1, 0, 5, 2}, {1, 2, 4, 6}, {3, 5, 7, 5}, {4, 10, 12, 16}};
 
-        std::unique_ptr<MTSDF::Text> t_time, t_night;
+        std::unique_ptr<MTSDF::Text> t_time, t_night, t_usage, t_power;
         std::shared_ptr<MTSDF::Font> f_lcdsolid;
 
         void advance_hour(void);
