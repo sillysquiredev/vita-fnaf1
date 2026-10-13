@@ -3,7 +3,7 @@
 .DEFAULT_GOAL := _bruh
 
 TARGET = app
-VITA_APP_ID = SLMNFNAF1
+VITA_APP_ID = VITAFNAF1
 
 _bruh:
 	@echo "You didn't read the README, did you?"
