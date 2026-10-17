@@ -41,8 +41,9 @@ namespace Game::Objects
     struct Cursor
     {
         CursorType type;
-        std::shared_ptr<Texture> t_cursor;
+        std::shared_ptr<Texture> tx_cursor;
         SpriteAtlas spr_cursor;
+        bool visible = true;
 
         Cursor(std::shared_ptr<Texture>, size_t, size_t);
         void update(void);

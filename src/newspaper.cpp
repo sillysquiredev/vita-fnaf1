@@ -1,5 +1,6 @@
 #include "newspaper.hpp"
 
+#include "appdata.hpp"
 #include "menu.hpp"
 #include "nightloader.hpp"
 
@@ -10,7 +11,7 @@ States::Newspaper::Newspaper(StateManager& sm) : IState::IState(sm)
     auto menu = (States::Menu*)sm.states.begin()->get();
     menu->updates_disabled = true;
 
-    this->t_newspaper = AssetManager::get<Texture>("t_newspaper");
+    this->tx_newspaper = AssetManager::get<Texture>("t_newspaper");
     this->spr_newspaper.color.a = 0;
 
 #ifdef __DEBUG__
@@ -27,7 +28,7 @@ void States::Newspaper::draw(int w, int h)
 
     Texture::default_shader->use();
     Texture::default_shader->set_uniform("u_texture", 0);
-    this->t_newspaper->activate(GL_TEXTURE0);
+    this->tx_newspaper->activate(GL_TEXTURE0);
     this->spr_newspaper.draw(*Texture::default_shader);
 }
 
@@ -40,6 +41,9 @@ void States::Newspaper::load_night()
 
 void States::Newspaper::update(double dt)
 {
+    auto userdata = std::any_cast<std::shared_ptr<AppData>>(this->state_manager.userdata);
+    userdata->o_cursor->visible = false;
+
     float& alpha = this->spr_newspaper.color.a;
 
     switch (this->state)

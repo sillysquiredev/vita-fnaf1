@@ -27,28 +27,54 @@ inline void queue_assets(uint8_t* count, int night)
 
     (*count)++;
     AssetManager::queue<TextureArray>("t_office", std::vector<TextureConfig>{
-        TextureConfig{.path = "assets/images/night/office/1.png"},
-        TextureConfig{.path = "assets/images/night/office/2.png"},
-        TextureConfig{.path = "assets/images/night/office/3.png"},
-        TextureConfig{.path = "assets/images/night/office/4.png"},
-        TextureConfig{.path = "assets/images/night/office/5.png"},
+        TextureConfig{.path = "assets/images/night/office/1.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/night/office/2.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/night/office/3.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/night/office/4.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/night/office/5.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+    });
+
+    (*count)++;
+    AssetManager::queue<Texture>("tx_usage",
+        TextureConfig{.path = "assets/images/night/usage.png", .min_filter = GL_NEAREST, .mag_filter = GL_NEAREST}
+    );
+
+    (*count)++;
+    AssetManager::queue<Shader>("s_night_usage",
+        "assets/shaders/night/usage.vert", "assets/shaders/night/usage.frag"
+    );
+
+    (*count)++;
+    AssetManager::queue<TextureArray>("t_door_right", std::vector<TextureConfig>{
+        TextureConfig{.path = "assets/images/night/office/buttons/right/1-STOPPED.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/night/office/buttons/right/2-DOOR.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/night/office/buttons/right/3-LIGHT.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/night/office/buttons/right/4-BOTH.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR}
+    });
+
+    (*count)++;
+    AssetManager::queue<TextureArray>("t_door_left", std::vector<TextureConfig>{
+        TextureConfig{.path = "assets/images/night/office/buttons/left/1-STOPPED.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/night/office/buttons/left/2-DOOR.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/night/office/buttons/left/3-LIGHT.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/night/office/buttons/left/4-BOTH.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR}
     });
 
     (*count)++;
     AssetManager::queue<TextureArray>("t_fan", std::vector<TextureConfig>{
-        TextureConfig{.path = "assets/images/night/fan/1.png"},
-        TextureConfig{.path = "assets/images/night/fan/2.png"},
-        TextureConfig{.path = "assets/images/night/fan/3.png"},
+        TextureConfig{.path = "assets/images/night/fan/1.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/night/fan/2.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/night/fan/3.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
     });
 
     (*count)++;
     AssetManager::queue<Texture>("t_mute_call",
-        TextureConfig{.path = "assets/images/night/MUTE_CALL_BUTTON.png"}
+        TextureConfig{.path = "assets/images/night/MUTE_CALL_BUTTON.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR}
     );
 
     (*count)++;
     AssetManager::queue<Texture>("t_camera_flip",
-        TextureConfig{.path = "assets/images/night/FLIP.png"}
+        TextureConfig{.path = "assets/images/night/FLIP.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR}
     );
 
     (*count)++;

@@ -11,6 +11,7 @@ static SDL_FRect const RECT_FREDDY_NOSE = SDL_FRect{.x = 500.0 / 960, .y = 165.0
 States::Office::Office(StateManager& sm, uint8_t night) : IState::IState(sm)
 {
     auto userdata = std::any_cast<std::shared_ptr<AppData>>(this->state_manager.userdata);
+    userdata->o_cursor->visible = true;
 
     sm.states.erase(sm.states.begin());
 
@@ -42,8 +43,7 @@ void States::Office::draw(int w, int h)
 {
     auto userdata = std::any_cast<std::shared_ptr<AppData>>(this->state_manager.userdata);
 
-    NEX::GL::clear_color(SDL_FColor{.r = 0.0f, .g = 0.0, .b = 0.0, .a = 1.0f});
-
+    NEX::GL::clear_color(SDL_FColor{.r = 0.0f, .g = 0.0, .b = 0.0, .a = 1.0f});     
     this->tr_office_view->use();
     Texture::default_shader->use();
     Texture::default_shader->set_uniform("u_texture", 0);
@@ -74,7 +74,6 @@ void States::Office::draw(int w, int h)
 void States::Office::update(double dt)
 {
     auto userdata = std::any_cast<std::shared_ptr<AppData>>(this->state_manager.userdata);
-
     userdata->o_cursor->update();
 
     auto m_data = InputManager::get_mouse_data().get_coords();

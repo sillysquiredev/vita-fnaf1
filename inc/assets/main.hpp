@@ -1,5 +1,6 @@
 #pragma once
 
+#include <GLES2/gl2.h>
 #include <nex.hpp>
 
 using namespace NEX::Prefabs;
@@ -10,54 +11,43 @@ inline void queue_assets(uint8_t* count)
 {
     // clang-format off
     (*count)++;
-    AssetManager::queue<Texture>("t_menu_background", TextureConfig{.path = "assets/images/menu/background.png"});
+    AssetManager::queue<Texture>("t_menu_background",
+        TextureConfig{.path = "assets/images/menu/background.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR}
+    );
 
     (*count)++;
     AssetManager::queue<TextureArray>("t_menu_blip", std::vector<TextureConfig>{
-        TextureConfig{.path = "assets/images/misc/white_bars/1.png"},
-        TextureConfig{.path = "assets/images/misc/white_bars/2.png"},
-        TextureConfig{.path = "assets/images/misc/white_bars/3.png"},
-        TextureConfig{.path = "assets/images/misc/white_bars/4.png"},
-        TextureConfig{.path = "assets/images/misc/white_bars/5.png"},
-        TextureConfig{.path = "assets/images/misc/white_bars/6.png"},
-        TextureConfig{.path = "assets/images/misc/white_bars/7.png"},
+        TextureConfig{.path = "assets/images/misc/white_bars/1.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/white_bars/2.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/white_bars/3.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/white_bars/4.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/white_bars/5.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/white_bars/6.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/white_bars/7.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
     });
 
     (*count)++;
-    AssetManager::queue<Texture>("t_static", TextureConfig{.path = "assets/images/static.png"});
+    AssetManager::queue<TextureArray>("t_static", std::vector<TextureConfig>{
+        TextureConfig{.path = "assets/images/static_top.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/static_bottom.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR}
+    });
 
     (*count)++;
     AssetManager::queue<TextureArray>("t_blip", std::vector<TextureConfig>{
-        TextureConfig{.path = "assets/images/misc/night_bars/1.png"},
-        TextureConfig{.path = "assets/images/misc/night_bars/2.png"},
-        TextureConfig{.path = "assets/images/misc/night_bars/3.png"},
-        TextureConfig{.path = "assets/images/misc/night_bars/4.png"},
-        TextureConfig{.path = "assets/images/misc/night_bars/5.png"},
-        TextureConfig{.path = "assets/images/misc/night_bars/6.png"},
-        TextureConfig{.path = "assets/images/misc/night_bars/7.png"},
-        TextureConfig{.path = "assets/images/misc/night_bars/8.png"},
-        TextureConfig{.path = "assets/images/misc/night_bars/9.png"},
-    });
-
-    (*count)++;
-    AssetManager::queue<TextureArray>("t_door_right", std::vector<TextureConfig>{
-        TextureConfig{.path = "assets/images/night/office/buttons/right/1-STOPPED.png"},
-        TextureConfig{.path = "assets/images/night/office/buttons/right/2-DOOR.png"},
-        TextureConfig{.path = "assets/images/night/office/buttons/right/3-LIGHT.png"},
-        TextureConfig{.path = "assets/images/night/office/buttons/right/4-BOTH.png"}
-    });
-
-    (*count)++;
-    AssetManager::queue<TextureArray>("t_door_left", std::vector<TextureConfig>{
-        TextureConfig{.path = "assets/images/night/office/buttons/left/1-STOPPED.png"},
-        TextureConfig{.path = "assets/images/night/office/buttons/left/2-DOOR.png"},
-        TextureConfig{.path = "assets/images/night/office/buttons/left/3-LIGHT.png"},
-        TextureConfig{.path = "assets/images/night/office/buttons/left/4-BOTH.png"}
+        TextureConfig{.path = "assets/images/misc/night_bars/1.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/night_bars/2.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/night_bars/3.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/night_bars/4.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/night_bars/5.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/night_bars/6.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/night_bars/7.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/night_bars/8.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
+        TextureConfig{.path = "assets/images/misc/night_bars/9.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR},
     });
 
     (*count)++;
     AssetManager::queue<Texture>("t_newspaper",
-        TextureConfig{.path = "assets/images/misc/NEWSPAPER.png"}
+        TextureConfig{.path = "assets/images/misc/NEWSPAPER.png", .min_filter = GL_LINEAR, .mag_filter = GL_LINEAR}
     );
 
     (*count)++;

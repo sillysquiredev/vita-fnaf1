@@ -30,14 +30,14 @@ States::Main::Main(StateManager& sm) : IState::IState(sm)
     }
 
     // clang-format off
-    this->t_loader = AssetManager::ensure_loaded<Texture>("t_loader", TextureConfig{
+    this->tx_loader = AssetManager::ensure_loaded<Texture>("t_loader", TextureConfig{
         .path = "assets/images/misc/LITTLE_CLOCK.png",
         .min_filter = GL_LINEAR,
         .mag_filter = GL_LINEAR,
     });
-    userdata->o_cursor = std::make_shared<Objects::Cursor>(std::make_shared<Texture>(TextureConfig{
-        .path = "assets/images/cursor.png",
-    }), 8, 3);
+    userdata->o_cursor = std::make_shared<Objects::Cursor>(std::make_shared<Texture>(
+        TextureConfig{.path = "assets/images/cursor.png",}
+    ), 8, 3);
     // clang-format on
 
     this->spr_loader.refresh_from_rect(SDL_FRect{.x = 856.0 / 960, .y = -500.0 / 544, .w = 64.0 / 960, .h = 64.0 / 544});
@@ -67,7 +67,7 @@ void States::Main::draw(int w, int h)
     {
         Texture::default_shader->use();
         Texture::default_shader->set_uniform("u_texture", 0);
-        this->t_loader->activate(GL_TEXTURE0);
+        this->tx_loader->activate(GL_TEXTURE0);
         this->spr_loader.draw(*Texture::default_shader);
     }
 

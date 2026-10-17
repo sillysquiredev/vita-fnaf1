@@ -14,7 +14,7 @@ namespace Game::Objects::Office
     struct CallHandler
     {
         std::shared_ptr<Audio> a_call;
-        std::shared_ptr<Texture> t_mute_call;
+        std::shared_ptr<Texture> tx_mute_call;
         Sprite spr_mute_call;
 
         Timer t_call = Timer(16);

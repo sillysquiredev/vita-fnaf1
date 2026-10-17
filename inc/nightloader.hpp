@@ -26,7 +26,7 @@ namespace Game::States
         std::shared_ptr<MTSDF::Font> f_lcdsolid;
         std::unique_ptr<MTSDF::Text> t_night[2];
 
-        std::shared_ptr<Texture> t_loader;
+        std::shared_ptr<Texture> tx_loader;
         Sprite spr_loader;
 
         virtual void draw(int w, int h) override;

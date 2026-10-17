@@ -10,7 +10,7 @@ CallHandler::CallHandler()
     if (this->a_call != nullptr)
         this->a_call->play_track();
 
-    this->t_mute_call = AssetManager::get<Texture>("t_mute_call");
+    this->tx_mute_call = AssetManager::get<Texture>("t_mute_call");
     this->spr_mute_call.color.a = 0.66;
     this->spr_mute_call.refresh_from_rect(RECT_CALL);
 }
@@ -21,7 +21,7 @@ void CallHandler::draw(void)
     {
         Texture::default_shader->use();
         Texture::default_shader->set_uniform("u_texture", 0);
-        this->t_mute_call->activate(GL_TEXTURE0);
+        this->tx_mute_call->activate(GL_TEXTURE0);
         this->spr_mute_call.draw(*Texture::default_shader);
     }
 }

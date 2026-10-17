@@ -28,9 +28,9 @@ namespace Game::Objects::Menu
         uint8_t current_blip_texture = 0;
         uint8_t current_texture = 0;
         std::shared_ptr<TextureArray> t_blip;
-        std::shared_ptr<Texture> t_background;
+        std::shared_ptr<Texture> tx_background;
         uint8_t current_static_texture = 0;
-        std::shared_ptr<Texture> t_static;
+        std::shared_ptr<TextureArray> tx_static;
         std::shared_ptr<Shader> shader;
         Sprite spr_background;
 

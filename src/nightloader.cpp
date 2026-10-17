@@ -13,7 +13,7 @@ States::NightLoader::NightLoader(StateManager& sm, int night) : IState::IState(s
     this->f_lcdsolid = AssetManager::get<MTSDF::Font>("f_lcdsolid");
     this->t_blip = AssetManager::get<TextureArray>("t_blip");
 
-    this->t_loader = AssetManager::get<Texture>("t_loader");
+    this->tx_loader = AssetManager::get<Texture>("t_loader");
     this->spr_loader.refresh_from_rect(SDL_FRect{.x = 856.0 / 960, .y = -500.0 / 544, .w = 64.0 / 960, .h = 64.0 / 544});
 
     this->t_night[0] = std::make_unique<MTSDF::Text>(this->f_lcdsolid, "12:00 AM");
@@ -74,7 +74,7 @@ void States::NightLoader::draw(int w, int h)
     {
         Texture::default_shader->use();
         Texture::default_shader->set_uniform("u_texture", 0);
-        this->t_loader->activate(GL_TEXTURE0);
+        this->tx_loader->activate(GL_TEXTURE0);
         this->spr_loader.draw(*Texture::default_shader);
     }
 }

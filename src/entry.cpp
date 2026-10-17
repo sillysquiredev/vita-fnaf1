@@ -8,9 +8,9 @@
 #ifdef __psp2__
 // PSVita newlib + Sony SDK heap sizes.
 // TODO: Probably I don't actually need this much.
-int _newlib_heap_size_user = 125 * 1024 * 1024; // 125MB
-unsigned int sceLibcHeapSize = 8 * 1024 * 1024; // 8MB
-unsigned int sceLibcHeapExtendedAlloc = 1;      // Lets libc resize automatically on getting full.
+int _newlib_heap_size_user = 96 * 1024 * 1024;   // 96MB
+unsigned int sceLibcHeapSize = 32 * 1024 * 1024; // 32MB
+unsigned int sceLibcHeapExtendedAlloc = 0;       // Lets libc resize automatically on getting full.
 #endif
 
 using namespace NEX::Core;

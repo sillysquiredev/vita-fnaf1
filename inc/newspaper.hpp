@@ -13,7 +13,7 @@ namespace Game::States
         Newspaper(StateManager&);
 
         std::shared_ptr<Shader> s_texture_default;
-        std::shared_ptr<Texture> t_newspaper;
+        std::shared_ptr<Texture> tx_newspaper;
         Sprite spr_newspaper;
 
         enum

@@ -18,7 +18,7 @@ namespace Game::States
         std::unique_ptr<MTSDF::Text> t_warning[3];
         std::shared_ptr<MTSDF::Font> f_tahoma;
 
-        std::shared_ptr<Texture> t_loader;
+        std::shared_ptr<Texture> tx_loader;
         Sprite spr_loader;
 
         Timer ti_transition = Timer(3.0);

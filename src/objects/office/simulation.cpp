@@ -43,6 +43,10 @@ Simulation::Simulation(int night)
     this->t_power->o_y = 0.5;
     this->t_power->s = 35 / 544.0;
     this->t_power->s_x = 0.6;
+
+    this->tx_usage = AssetManager::get<Texture>("tx_usage");
+    this->s_usage = AssetManager::get<Shader>("s_night_usage");
+    this->spr_usage.refresh_from_rect(SDL_FRect{.x = -750.0 / 960, .y = -490.0 / 544, .w = 160.0 / 960, .h = 60.0 / 544});
 }
 
 void Simulation::advance_hour(void)
@@ -73,6 +77,14 @@ void Simulation::draw(void)
 
     this->t_usage->draw();
     this->t_power->draw();
+
+    this->s_usage->use();
+    this->s_usage->set_uniform("gt_texture.texture", 0);
+    this->s_usage->set_uniform("gt_texture.index", 0.0);
+    this->s_usage->set_uniform("gt_texture.width", 1.0);
+    this->s_usage->set_uniform("gt_texture.height", 5.0);
+    this->tx_usage->activate(GL_TEXTURE0);
+    this->spr_usage.draw(*this->s_usage);
 }
 
 void Simulation::update(double dt)
